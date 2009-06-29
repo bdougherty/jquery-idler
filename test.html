@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Idle Test</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="jquery.idler.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		
+		// When the document is ready
+		$(document).ready(function() {			
+			$(this).idler({
+				onActive: function(event, idleTime) {
+					$('#idle').html('Active after ' + idleTime + 'ms');
+					$('#test').css('opacity', '1');
+				},
+				onIdle: function() {
+					$('#idle').html('idled...');
+					$('#test').css('opacity', '0.3');
+				}
+			});
+		});
+		
+	</script>
+</head>
+<body>
+	<p id="idle">Let's see...</p>
+	<p id="test">This is an idle demo. Yay.</p>
+</body>
+</html>
